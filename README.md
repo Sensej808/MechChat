@@ -1,24 +1,14 @@
 # README
+MVP features
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Opportunity to write to others users
 
-Things you may want to cover:
+* Ability to create groups of users for general conversation
 
-* Ruby version
+* Sending files (video files, audio files, images, etc.)
 
-* System dependencies
+* Search chats among others
 
-* Configuration
+* User-friendly interface
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Excellent cyber protection
