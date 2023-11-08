@@ -1,4 +1,4 @@
-##Application
+## Application
 
  MechChat is  a communication platform that will allow users to send instant messages, voice messages, or multimedia files to individuals or groups. It  will serve as a convenient and efficient way to connect with others 
  
