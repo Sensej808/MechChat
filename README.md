@@ -1,4 +1,6 @@
 # README
+*MVP features
+
 * Opportunity to write to others users
 
 * Ability to create groups of users for general conversation
