@@ -1,5 +1,5 @@
 # README
-*MVP features
+MVP features
 
 * Opportunity to write to others users
 
