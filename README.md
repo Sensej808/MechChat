@@ -6,3 +6,7 @@
 * Sending files (video files, audio files, images, etc.)
 
 * Search chats among others
+
+* User-friendly interface
+
+* Excellent cyber protection
