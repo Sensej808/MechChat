@@ -1,5 +1,5 @@
 class SearchController < ActionController::Base
-  def searchUser
+  def find
 
   end
 end

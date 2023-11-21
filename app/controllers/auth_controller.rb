@@ -1,5 +1,5 @@
 class AuthController < ActionController::Base
-    def register
+    def create
 
     end
     def login
