@@ -2,15 +2,11 @@ class ChatsController < ActionController::Base
   def create
 
   end
-  def destroy
+
+  def delete
 
   end
-  def addUser
 
-  end
-  def deleteUser
-
-  end
   def edit
 
   end

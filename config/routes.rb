@@ -4,27 +4,29 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
-  post "users", to: "auth#create"
-  post "users/:id_user", to: "auth#login"
 
-  delete "users", to: "profiles#destroy"
-  patch "users", to: "profiles#edit"
-  patch "users", to: "profiles#logOut"
+  post "auth/:id_user", to: "auths#create"
+  delete "auth/:id_user", to: "auths#delete"
 
-  post "chats", to:"chatlists#create"
-  get "chats", to:"chatlists#index"
-  delete "chats/:id_chat", to: "chatlists#destroy"
-  get "chats/:id_chat", to: "chatlists#show"
+  post "users", to: "users#create"
+  delete "users/:id_user", to: "users#delete"
+  patch "users/:id_user", to: "users#edit"
+  get "users/:id_user", to: "users#show"
 
-  patch "chats/:id_chat", to:"chatlists#edit"
-  patch "chats/:id_chat", to:"chats#addUser"
-  patch "chats/:id_chat", to:"chats#deleteUser"
+  get "chatlists", to: "chatlists#index"
+  post "chatlists/:id_chat", to: "chatlists#create"
+  delete "chatlists/:id_chat", to: "chatlists#delete"
 
-  post "messages", to:"chats#create"
-  delete "messages/:id", to:"chats#destroy"
-  patch "messages/:id", to:"chats#edit"
+  post "chats", to: "chats#create"
+  delete "chats/:id_chat", to: "chats#delete"
+  get "chats/:id_chat", to: "chats#show"
+  post "chats/:id_chat/:id_user", to: "chats#addUser"
+  delete "chats/:id_chat/:id_user", to: "chats#deleteUser"
+  patch "chats/:id_chat", to: "chats#edit"
 
-  get "users/:id", to:"search#find"
+  post "messages/:id_chat", to: "messages#create"
+  delete "messages/:id_chat/:id_mes", to: "messages#delete"
+  patch "messages/:id_chat/:id_mes", to: "messages#edit"
   # Defines the root path route ("/")
   # root "posts#index"
 end
