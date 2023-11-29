@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Регистрация</h1>
+  <%= form_tag('/users') do -%>
+
+    <div class='form-field'>
+      <%=label_tag 'email', 'Почта' %>
+      <%=text_field_tag 'user[email]'%>
+    </div>
+    <div class='form-field'>
+      <%=label_tag 'name', 'Имя' %>
+      <%=text_field_tag 'user[name]'%>
+    </div>
+    <div class='form-field'>
+      <%=label_tag 'pwd', 'Пароль' %>
+      <%=text_field_tag 'user[pwd]'%>
+    </div>
+    <div class='form-field'>
+      <%= submit_tag 'Отправить' %>
+    </div>
+  <% end -%>
+
+</div>
