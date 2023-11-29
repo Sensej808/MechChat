@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   root "start_pages#welcome"
   get "/users/new", to: "users#new"
-
+  get "/auths/login", to: "auths#login"
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  post "/auth/:id_user", to: "auths#create"
-  delete "/auth/:id_user", to: "auths#delete"
+  post "/auths", to: "auths#create"
+  delete "/auths/:id_user", to: "auths#delete"
 
   post "/users", to: "users#create"
   delete "/users/:id_user", to: "users#delete"

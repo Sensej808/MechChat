@@ -1,6 +1,5 @@
 class ChatsController < ActionController::Base
   def create
-
   end
 
   def delete

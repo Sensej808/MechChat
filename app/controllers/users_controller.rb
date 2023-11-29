@@ -1,6 +1,6 @@
 class UsersController < ActionController::Base
   def create
-    @user = User.create(user_params)
+    @user = User.create user_params
     if @user.errors.empty?
       redirect_to "http://google.com", allow_other_host: true
     else
