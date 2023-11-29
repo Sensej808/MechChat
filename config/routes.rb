@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   patch "users/:id_user", to: "users#edit"
   get "users/:id_user", to: "users#show"
 
-  get "chatlists", to: "chatlists#index"
-  post "chatlists/:id_chat", to: "chatlists#create"
-  delete "chatlists/:id_chat", to: "chatlists#delete"
+  get "chatlists", to: "chatlists#index" #all chats
 
   post "chats", to: "chats#create"
   delete "chats/:id_chat", to: "chats#delete"
