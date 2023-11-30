@@ -5,8 +5,7 @@ class AuthsController < ActionController::Base
       render 'login'
     else
       session[:id] = @user[:id]
-      #render "users/profiles"
-      redirect_to "http://google.com", allow_other_host: true
+      redirect_to controller: :users, action: :show, id_user: session[:id]
       puts session[:id]
     end
   end

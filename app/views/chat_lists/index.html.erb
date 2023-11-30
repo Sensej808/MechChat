@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Создать чат</h1>
+  <%= form_tag('/chats') do -%>
+
+    <div class='form-field'>
+      <%=label_tag 'name', 'Название чата' %>
+      <%=text_field_tag 'chat[name]'%>
+    </div>
+    <div class='form-field'>
+      <%=label_tag 'members', 'Количество участников' %>
+      <%=text_field_tag 'chat[members]'%>
+    </div>
+    <div class='form-field'>
+      <%= submit_tag 'Далее' %>
+    </div>
+  <% end -%>
+
+</div>
+
+
+<div class="actual">
+  <center>
+  <p>Ваш чаты:</p>
+  <ul>
+    <%- Chat.select(:name).where(:id => ChatMember.select(:id).where(:user_id =>session[:id])).each do |s| %>
+      <li><%= s[:name]%></li>
+    <%-end%>
+
+  </ul>
+  </center>
+</div>

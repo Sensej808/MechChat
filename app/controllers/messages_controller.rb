@@ -1,4 +1,4 @@
-class ChatsController < ActionController::Base
+class MessagesController < ActionController::Base
   def create
 
   end

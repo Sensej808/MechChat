@@ -1,0 +1,9 @@
+<li><%=User.where(:id => session[:id]).take[:id]%></li>
+<li><%=User.where(:id => session[:id]).take[:name]%></li>
+<li><%=request.parameters[:id_user]%></li>
+<h1>
+  <center>
+  Имя: <%=User.where(:id => request.parameters[:id_user]).take[:name]%>
+    </center>
+</h1>
+<%= button_to 'Чаты', '/chat_lists', method: :get%>

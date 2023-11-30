@@ -2,7 +2,8 @@ class UsersController < ActionController::Base
   def create
     @user = User.create user_params
     if @user.errors.empty?
-      redirect_to "http://google.com", allow_other_host: true
+      session[:id] = @user[:id]
+      redirect_to action: :show, id_user: session[:id]
     else
       render 'new'
     end
@@ -17,6 +18,10 @@ class UsersController < ActionController::Base
   end
 
   def show
+    puts "АЙДИ"+request.parameters[:id_user]
+  end
+
+  def id
 
   end
 
