@@ -1,4 +1,4 @@
-class AuthsController < ActionController::Base
+class AuthsController < ApplicationController
   def create
     @user = User.where(:email => auth_params[:email], :pwd => auth_params[:pwd]).take
     if (@user.nil?)

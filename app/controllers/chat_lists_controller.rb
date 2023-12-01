@@ -1,4 +1,4 @@
-class ChatListsController < ActionController::Base
+class ChatListsController < ApplicationController
   def index
 
   end

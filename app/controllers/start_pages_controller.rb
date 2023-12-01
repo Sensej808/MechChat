@@ -1,2 +1,2 @@
-class StartPagesController < ActionController::Base
+class StartPagesController < ApplicationController
 end

@@ -1,4 +1,4 @@
-class ChatsController < ActionController::Base
+class ChatsController < ApplicationController
   def create
     @chat = Chat.create chat_params
     ChatMember.create(user_id: session[:id], chat_id: @chat[:id])
