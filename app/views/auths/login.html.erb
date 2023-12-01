@@ -1,17 +1,25 @@
-<div class="place-content-center text-sky-400">
-  <h1 class="font-mono">Авторизация</h1>
-  <%= form_tag('/auths') do -%>
-    <div class='form-field'>
-      <%=label_tag 'email', 'Почта' %>
-      <%=text_field_tag 'auth[email]'%>
+<div class="h-screen grid place-content-center font-mono">
+  <div class="place-content-center bg-slate-200 m-8">
+    <div class="grid m-8 space-y-4">
+      <h1 class="">Авторизация</h1 >
+      <%= form_tag('/auths') do -%>
+        <div class="space-y-4">
+        <div class='form-field'>
+          <%=label_tag 'email', 'Почта' %>
+          <%=text_field_tag 'auth[email]'%>
+        </div>
+        <div class='form-field'>
+          <%=label_tag 'pwd', 'Пароль' %>
+          <%=text_field_tag 'auth[pwd]'%>
+        </div>
+        <div class='flex place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600'>
+          <%= submit_tag 'Отправить' %>
+        </div>
+        </div>
+      <% end -%>
     </div>
-    <div class='form-field'>
-      <%=label_tag 'pwd', 'Пароль' %>
-      <%=text_field_tag 'auth[pwd]'%>
-    </div>
-    <div class='form-field'>
-      <%= submit_tag 'Отправить' %>
-    </div>
-  <% end -%>
+
+
+</div>
 
 </div>

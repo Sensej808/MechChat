@@ -1,4 +1,4 @@
-class UsersController < ActionController::Base
+class UsersController < ApplicationController
   def create
     @user = User.create user_params
     if @user.errors.empty?

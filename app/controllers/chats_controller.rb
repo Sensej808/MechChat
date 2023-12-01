@@ -1,4 +1,4 @@
-class ChatsController < ActionController::Base
+class ChatsController < ApplicationController
   before_action :set_chat, except: [:create]
   def create
     @chat = Chat.create chat_params
