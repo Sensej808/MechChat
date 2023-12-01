@@ -14,7 +14,7 @@ class ChatsController < ActionController::Base
   end
 
   def show
-
+    
   end
 
   def addUser

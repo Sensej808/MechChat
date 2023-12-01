@@ -1,0 +1,26 @@
+
+<h2>Чат: <%= @chat.name %></h2>
+
+<%= form_with(model: [@chat, @chat.messages.build], url: chat_messages_path(@chat), method: :post) do |form| %>
+  <div class='form-field'>
+    <%= form.text_area :content, placeholder: 'Введите ваше сообщение' %>
+  </div>
+  <div class='form-field'>
+    <%= form.submit 'Отправить' %>
+  </div>
+<% end %>
+
+<h3>Сообщения в чате:</h3>
+
+<% @chat.messages.each do |message| %>
+  <div class='message'>
+    <strong><%= message.user.name %>:</strong>
+    <%= message.content %>
+    <% if current_user && current_user.id == message.user.id %>
+      <%= link_to 'Удалить', chat_message_path(@chat, message), method: :delete, data: { confirm: 'Вы уверены?' } %>
+      <%= link_to 'Редактировать', edit_chat_message_path(@chat, message) %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'Назад к чатам', chat_lists_path %>
