@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   patch "/users/:id_user", to: "users#edit"
   get "/users/:id_user", to: "users#show"
 
+  #TODO: Избавиться от ресурса chat_list
   get "/chat_lists", to: "chat_lists#index" #all chats
+
+  #временный роутинг, после будет заменен на JS скрипт
+  get "/chats", to: "chats#create"
 
   post "/chats", to: "chats#create"
   delete "/chats/:id_chat", to: "chats#delete"

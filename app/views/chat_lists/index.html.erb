@@ -16,16 +16,3 @@
   <% end -%>
 
 </div>
-
-
-<div class="actual">
-  <center>
-  <p>Ваш чаты:</p>
-  <ul>
-    <%- Chat.all.where(:id => ChatMember.select(:chat_id).where(:user_id =>session[:id])).each do |s| %>
-      <%= button_to s[:name], '/chats/'+s[:id].to_s, method: :get%>
-    <%-end%>
-
-  </ul>
-  </center>
-</div>

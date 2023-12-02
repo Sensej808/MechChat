@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def show
     puts "АЙДИ"+request.parameters[:id_user]
+    @user = User.find request.parameters[:id_user]
   end
 
   def id

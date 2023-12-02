@@ -1,9 +1,36 @@
-<li><%=User.where(:id => session[:id]).take[:id]%></li>
-<li><%=User.where(:id => session[:id]).take[:name]%></li>
-<li><%=request.parameters[:id_user]%></li>
-<h1>
-  <center>
-  Имя: <%=User.where(:id => request.parameters[:id_user]).take[:name]%>
-    </center>
-</h1>
-<%= button_to 'Чаты', '/chat_lists', method: :get%>
+
+
+<div class="bg-green-300 h-screen">
+  <div class="flex place-content-between bg-green-500">
+    <div class = "rounded-full bg-slate-200">
+      <input type = "text" placeholder="Поиск" class="">
+      <button class=''>Искать</button>
+    </div>
+    <div class="flex flex-wrap">
+      <div class="bg-slate-200 mx-10 w-10">
+        <%= button_to "+", "/chats", method: :get%>
+      </div>
+      <div class="bg-slate-300">
+        <button class="p-2"><%=@user.name %></button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <%@user.chats do |chat| %>
+    <button>
+      <div class = "chats h-full w-full bg-sky-200">
+        <div class="flex flex-wrap p-2 w-full h-14">
+          <div class="rounded-full min-w-10 bg-slate-800 min-h-10"></div>
+          <div>
+            <h2 class="pl-8"><%=chat.name %></h2>
+          </div>
+        </div>
+      </div>
+    </button>
+
+  <% end %>
+
+
+</div>

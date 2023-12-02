@@ -10,6 +10,10 @@ class ChatsController < ApplicationController
     end
   end
 
+  def formCreate
+    render "chat_lists/index"
+  end
+
   def delete
 
   end
