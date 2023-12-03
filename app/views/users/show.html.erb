@@ -8,7 +8,6 @@
     </div>
     <div class="flex flex-wrap">
       <div class="bg-slate-200 mx-10 w-10">
-        <%= button_to "+", "/chats", method: :get%>
       </div>
       <div class="bg-slate-300">
         <button class="p-2"><%=@user.name %></button>
@@ -17,20 +16,40 @@
 
   </div>
 
-
-  <%@user.chats do |chat| %>
-    <button>
-      <div class = "chats h-full w-full bg-sky-200">
-        <div class="flex flex-wrap p-2 w-full h-14">
-          <div class="rounded-full min-w-10 bg-slate-800 min-h-10"></div>
-          <div>
-            <h2 class="pl-8"><%=chat.name %></h2>
-          </div>
+  <div class="flex flex-col p-2">
+    <h3 class="p-2">Создание чата</h3>
+    <div class="flex flex-row-reverse">
+      <%= form_with url: "/chats", scope: :chat, method: :post do |form| %>
+        <%= form.label :name, "Название чата:" %>
+        <%= form.text_field  :name%>
+        <div class="bg-slate-200">
+          <%= form.submit "Search" %>
         </div>
-      </div>
-    </button>
+      <% end %>
+    </div>
 
-  <% end %>
+
+  </div>
+
+
+  <div class="grid p-2">
+    <h1 class="p-2">Вашы чаты:</h1>
+    <%@user.chats.each do |chat| %>
+
+        <div class = "chats h-full w-full bg-sky-200">
+
+          <%=link_to chats_path(:chat => {:name => chat.name, :id_chat => chat.id}), action: 'show' do%>
+          <div class="flex flex-wrap p-2 w-full h-14">
+            <div class="rounded-full min-w-10 bg-slate-800 min-h-10"></div>
+            <div>
+              <h2 class="pl-8"><%=chat.name %></h2>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+    <% end %>
+  </div>
 
 
 </div>

@@ -2,16 +2,13 @@ class ChatsController < ApplicationController
   before_action :set_chat, except: [:create]
   def create
     @chat = Chat.create chat_params
-    ChatMember.create(user_id: session[:id], chat_id: @chat[:id])
-      if @chat.errors.empty?
-        render "chat_lists/index"
-      else
-        render "chat_lists/index"
-    end
-  end
 
-  def formCreate
-    render "chat_lists/index"
+    ChatMember.create(user_id: session[:id], chat_id: @chat[:id])
+    if @chat.errors.empty?
+      render "chats/show"
+    else
+      render "chats/show"
+  end
   end
 
   def delete
@@ -19,7 +16,7 @@ class ChatsController < ApplicationController
   end
 
   def show
-
+    render "chats/show"
   end
 
   def addUser
@@ -34,7 +31,7 @@ class ChatsController < ApplicationController
 
   end
   def set_chat
-    @chat = Chat.find(params[:id_chat])
+    @chat = Chat.find(params[:chat][:id_chat])
   end
   private
   def chat_params

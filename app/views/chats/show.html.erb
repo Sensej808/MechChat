@@ -1,5 +1,6 @@
 <h2>Чат: <%= @chat.name %></h2>
-<%= form_with(model: [@chat, @chat.messages.build], url: chat_messages_path(@chat), method: :post) do |form| %>
+<% puts chats_path%>
+<%= form_with(model: [@chat, @chat.messages.build], url: '/message/', method: :post) do |form| %>
   <div class='form-field'>
     <%= form.text_area :content, placeholder: 'Введите ваше сообщение' %>
   </div>
@@ -13,8 +14,8 @@
     <strong><%= message.user.name %>:</strong>
     <%= message.content %>
     <% if current_user && current_user.id == message.user.id %>
-      <%= link_to 'Удалить', chat_message_path(@chat, message), method: :delete, data: { confirm: 'Вы уверены?' } %>
-      <%= link_to 'Редактировать', edit_chat_message_path(@chat, message) %>
+      <%= link_to 'Удалить', message_path(@chat.id, message.id), method: :delete, data: { confirm: 'Вы уверены?' } %>
+      <%= link_to 'Редактировать', message_path(@chat.id, message.id), method: :patch %>
     <% end %>
   </div>
 <% end %>
