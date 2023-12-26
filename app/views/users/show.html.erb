@@ -18,12 +18,12 @@
 
   <div class="flex flex-col p-2">
     <h3 class="p-2">Создание чата</h3>
-    <div class="flex flex-row-reverse">
+    <div class="flex">
       <%= form_with url: "/chats", scope: :chat, method: :post do |form| %>
         <%= form.label :name, "Название чата:" %>
         <%= form.text_field  :name%>
         <div class="bg-slate-200">
-          <%= form.submit "Search" %>
+          <%= form.submit "Создать" %>
         </div>
       <% end %>
     </div>
