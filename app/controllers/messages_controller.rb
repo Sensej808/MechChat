@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       redirect_to chat_path(@chat), notice: 'Сообщение успешно отправлено.'
+
     else
       flash[:alert] = 'Ошибка при отправке сообщения.'
       redirect_to chat_path(@chat)
