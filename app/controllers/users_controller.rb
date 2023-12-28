@@ -5,7 +5,8 @@ class UsersController < ApplicationController
       session[:id] = @user[:id]
       redirect_to action: :show, id_user: session[:id]
     else
-      render 'new'
+      flash.now[:alert] = @user.errors.full_messages.join(', ')
+      render 'new', status: :unprocessable_entity
     end
   end
 

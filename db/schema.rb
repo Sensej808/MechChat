@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_052410) do
     t.bigint "chat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
     t.index ["chat_id"], name: "index_chat_members_on_chat_id"
     t.index ["user_id"], name: "index_chat_members_on_user_id"
   end
@@ -27,6 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_052410) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "members"
   end
 
   create_table "group_members", force: :cascade do |t|
