@@ -1,5 +1,4 @@
 
-
 <div class="bg-green-300 h-screen">
   <div class="flex place-content-between bg-green-500">
     <div class = "rounded-full bg-slate-200">
@@ -38,14 +37,25 @@
 
         <div class = "chats h-full w-full bg-sky-200">
 
-          <%=link_to chats_path(:chat => {:name => chat.name, :id_chat => chat.id}), action: 'show' do%>
+          <%= link_to controller: :chats, action: :show, id_chat: chat.id do%>
           <div class="flex flex-wrap p-2 w-full h-14">
             <div class="rounded-full min-w-10 bg-slate-800 min-h-10"></div>
             <div>
-              <h2 class="pl-8"><%=chat.name %></h2>
+              <h2 class="pl-8"><%=chat.name%></h2>
+          <% end %>
+              <%= form_tag('/chats/' + chat.id.to_s + '/:id_user') do -%>
+                <div class="space-y-4">
+                  <div class='form-field'>
+                    <%=label_tag '', 'ID пользователя' %>
+                    <%=text_field_tag 'user[id_user]'%>
+                  </div>
+                  <div class='flex place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600'>
+                    <%= submit_tag 'Добавить' %>
+                  </div>
+                </div>
+              <% end -%>
             </div>
           </div>
-          <% end %>
         </div>
 
     <% end %>

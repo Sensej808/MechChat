@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   patch "/users/:id_user", to: "users#edit"
   get "/users/:id_user", to: "users#show"
 
-  #TODO: Избавиться от ресурса chat_list
+  #TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ chat_list
   get "/chat_lists", to: "chat_lists#index" #all chats
 
-  #временный роутинг, после будет заменен на JS скрипт
+  #пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ JS пїЅпїЅпїЅпїЅпїЅпїЅ
   get "/chats", to: "chats#create"
 
   post "/chats", to: "chats#create"
