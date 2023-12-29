@@ -1,27 +1,25 @@
 
-<div class="bg-green-300 h-screen">
-  <div class="flex place-content-between bg-green-500">
-    <div class = "rounded-full bg-slate-200">
-      <input type = "text" placeholder="Поиск" class="">
-      <button class=''>Искать</button>
-    </div>
+<div class="bg-gradient-to-r from-gray-800 to-slate-900 h-screen">
+
+  <div class="flex place-content-between bg-slate-200">
     <div class="flex flex-wrap">
-      <div class="bg-slate-200 mx-10 w-10">
-      </div>
       <div class="bg-slate-300">
         <button class="p-2"><%=@user.name %></button>
       </div>
     </div>
-
   </div>
 
-  <div class="flex flex-col p-2">
+  <div class="flex flex-col p-2 rounded-lg bg-slate-200 m-8 place-content-between">
     <h3 class="p-2">Создание чата</h3>
     <div class="flex">
+
       <%= form_with url: "/chats", scope: :chat, method: :post do |form| %>
-        <%= form.label :name, "Название чата:" %>
-        <%= form.text_field  :name%>
-        <div class="bg-slate-200">
+        <div class='form-field m-2'>
+          <%= form.label :name, "Название чата:" %>
+          <%= form.text_field  :name%>
+        </div>
+
+        <div class="place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600">
           <%= form.submit "Создать" %>
         </div>
       <% end %>
@@ -31,33 +29,37 @@
   </div>
 
 
-  <div class="grid p-2">
-    <h1 class="p-2">Вашы чаты:</h1>
+  <div class="grid p-2 m-8">
+    <div class="flex  rounded-lg bg-slate-200 size-auto">
+      <h1 class=" m-2">Вашы чаты:</h1>
+    </div>
     <%@user.chats.each do |chat| %>
 
-        <div class = "chats h-full w-full bg-sky-200">
+        <div class = "chats h-full w-full bg-slate-200 m-2 rounded-lg">
 
           <%= link_to controller: :chats, action: :show, id_chat: chat.id do%>
-          <div class="flex flex-wrap p-2 w-full h-14">
-            <div class="rounded-full min-w-10 bg-slate-800 min-h-10"></div>
-            <div>
-              <h2 class="pl-8"><%=chat.name%></h2>
-          <% end %>
-              <%= form_tag('/chats/' + chat.id.to_s + '/:id_user') do -%>
-                <div class="space-y-4">
-                  <div class='form-field'>
-                    <%=label_tag '', 'ID пользователя' %>
-                    <%=text_field_tag 'user[id_user]'%>
-                  </div>
-                  <div class='flex place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600'>
-                    <%= submit_tag 'Добавить' %>
-                  </div>
-                </div>
-              <% end -%>
+            <div class="flex flex-wrap p-2 w-full h-14">
+              <div class="rounded-full min-w-10 min-h-10"></div>
+              <div>
+                <h2 class="pl-8"><%=chat.name%></h2>
+              </div>
             </div>
-          </div>
-        </div>
+          <% end %>
 
+          <%= form_tag('/chats/' + chat.id.to_s + '/:id_user') do -%>
+            <div class="space-y-4 ">
+              <div class='form-field'>
+                <%=label_tag '', 'ID пользователя' %>
+                <%=text_field_tag 'user[id_user]'%>
+              </div>
+              <div class='flex place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600'>
+                <%= submit_tag 'Добавить' %>
+              </div>
+            </div>
+          <% end -%>
+
+        </div>
+        </div>
     <% end %>
   </div>
 

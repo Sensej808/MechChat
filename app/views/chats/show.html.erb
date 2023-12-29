@@ -1,20 +1,39 @@
-<h2>Чат: <%= @chat.name %></h2>
-<% puts chats_path%>
-<%= form_with(model: [@chat, @chat.messages.build], url:"/messages/"+@chat.id.to_s, method: :post) do |form| %>
-  <div class='form-field'>
-    <%= form.text_area :message, placeholder: 'Введите ваше сообщение' %>
+<div class="bg-gradient-to-r from-gray-800 to-slate-900 h-screen">
+
+
+<div class="flex place-content-between bg-slate-200">
+  <div class="flex flex-wrap">
+    <div class="bg-slate-300">
+      <h2>Чат: <%= @chat.name %></h2>
+    </div>
   </div>
-  <div class='form-field'>
-    <%= form.submit 'Отправить' %>
+</div>
+
+
+<div class="grid h-full grid-rows-5">
+  <div class="flex-col row-start-1 row-span-4">
+    <% @chat.messages.each do |message| %>
+      <div class='message rounded-lg bg-slate-200 m-2'>
+        <% if message.user.nil? == false %>
+          <strong><%=message.user.name %>:</strong>
+          <%= message.message %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-<h3>Сообщения в чате:</h3>
-  <% @chat.messages.each do |message| %>
-    <div class='message'>
-      <% if message.user.nil? == false %>
-        <strong><%=message.user.name %>:</strong>
-      <%= message.message %>
-      <% end %>
+<div class="flex h-14 bottom-0 row-start-5">
+
+
+  <% puts chats_path%>
+  <%= form_with(model: [@chat, @chat.messages.build], url:"/messages/"+@chat.id.to_s, method: :post) do |form| %>
+    <div class='form-field w-max'>
+      <%= form.text_area :message, placeholder: 'Введите ваше сообщение' %>
+    </div>
+    <div class='form-field place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600'>
+      <%= form.submit 'Отправить' %>
     </div>
   <% end %>
-<%= link_to 'Назад к чатам', chat_lists_path %>
+</div>
+
+</div>
+</div>

@@ -19,8 +19,7 @@
     });
   });
 </script>
-
-<div class="h-screen grid place-content-center font-mono">
+<div class="h-screen grid place-content-center font-mono bg-gradient-to-r from-gray-800 to-slate-900">
   <div class="place-content-center bg-slate-200 m-8">
     <div class="grid m-8 space-y-4">
       <h1 class="">Авторизация</h1 >
@@ -35,7 +34,7 @@
           <%=text_field_tag 'auth[pwd]'%>
         </div>
         <div class='flex place-content-center p-2 rounded-full border-solid border-2 border-gray-500 form-field bg-sky-500 hover:bg-sky-700 active:bg-red-600'>
-          <%= submit_tag 'Отправить' %>
+          <%= submit_tag 'Авторизироваться' %>
         </div>
         <% if flash.now[:alert] %>
           <p class="error"><%= flash.now[:alert] %></p>
@@ -44,8 +43,5 @@
       <% end -%>
       <%= button_to 'Регистрация', '/users/new', method: :get %>
     </div>
-
-
-</div>
-
+  </div>
 </div>
