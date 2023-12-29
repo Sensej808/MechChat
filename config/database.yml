@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: mech_chat_production
-  username: mech_chat
+  database: <%= ENV["MECH_CHAT_DATABASE_NAME"] %>
+  username: <%= ENV["MECH_CHAT_DATABASE_USERNAME"] %>
   password: <%= ENV["MECH_CHAT_DATABASE_PASSWORD"] %>
