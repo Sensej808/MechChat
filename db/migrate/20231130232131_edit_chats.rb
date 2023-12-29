@@ -1,6 +1,6 @@
 class EditChats < ActiveRecord::Migration[7.1]
   def change
-    change_table :groups do |t|
+    change_table :chats do |t|
       t.remove :members
     end
   end
